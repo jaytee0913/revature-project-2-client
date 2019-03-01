@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="new-listing">
+    
+    <button type="button" id="add" class="btn fa fa-calendar-plus add-btn"></button>
+  </div>
+
+
+  <!-- <div class="card-deck mb-3 text-center"> -->
+  <div class="card mb-4 box-shadow">
+    <!-- comp name, job name, city, state, dept, tags -->
+    <div class="card-body">
+      <div>
+        <h3 class="job-titles">Card title</h3>
+        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+        <p class="card-text">Some quick example text to build on the card tiarvat></p>
+        <!-- <div><h1 class="job-titles">{{ job.jobTitle }}</h1></div>
+        <div><span><h3>Company:   </h3><h3>{{ job.companyName }}</h3></span></div>
+        
+        <h3>City:</h3>
+        <h3>{{ job.city }}</h3>
+        <h3>{{ job.state }}</h3> -->
+        <button type="button" class="btn btn-outline-primary" (click)="job.isCollapsed = !job.isCollapsed"
+          [attr.aria-expanded]="!job.isCollapsed" aria-controls="collapseExample">
+          More Info
+        </button>
+      </div>
+      <div id="collapseExample" [ngbCollapse]="job.isCollapsed">
+          <div class="card-body">
+            <h3>Dept: {{ job.dept }}</h3>
+            <p>Description:  {{ job.description }}</p>
+            <!-- Display Tags here -->
+          </div>
+      </div>
+    </div>
+    <!-- </div> -->
+  </div>
