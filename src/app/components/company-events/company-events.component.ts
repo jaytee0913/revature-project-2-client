@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-company-events',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompanyEventsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
+  toCompanyHome(){
+    this.router.navigateByUrl('/company-home');
+  }
 
+  logout(){
+    this.router.navigateByUrl('/front-page');
+  }
 }
