@@ -1,0 +1,102 @@
+<div id="customNavbar"
+  class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 border-bottom box-shadow">
+  <h5 id="title" class="my-0 mr-md-auto font-weight-normal">Fair Breeze</h5>
+  <nav class="my-2 my-md-0 mr-md-3">
+    <a class="p-2 text-white" (click)="backHome()" href="#">Home</a>
+    <a class="p-2 text-white" href="#">About Us</a>
+    <a class="p-2 text-white" href="#">Features</a>
+    <a class="p-2 text-white" href="https://github.com/jaytee0913/revature-project-2-server/wiki">Documentation</a>
+  </nav>
+</div>
+
+<div class="intro-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <h5 id="title2" class="my-0 mr-md-auto font-weight-normal">Fair Breeze</h5>
+</div>
+
+<div class="container">
+  <div class="input-card">
+    <div class="card mb-4 box-shadow">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal card-display"><i class="fa fa-users" aria-hidden="true"></i> Companies</h4>
+      </div>
+
+      <div class="card-body">
+        <div class="form-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-users"></i></span>
+            <input class="form-control" type="text" id="username" name="username" placeholder="Enter Company Username"
+              [(ngModel)]="username" required email />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-align-justify"></i></span>
+            <input class="form-control" type="textarea" id="description" name="description"
+              placeholder="Enter Company Description" [(ngModel)]="description" required email />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-key"></i></span>
+            <input class="form-control" type="password" id="studentPassword" name="password" [(ngModel)]="password"
+              placeholder="Password" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-key"></i></span>
+            <input class="form-control" type="password" id="confirmPassword" name="confirmPassword"
+              [(ngModel)]="confirmPassword" placeholder="Confirm Password" required />
+          </div>
+        </div>
+
+        <div class="input-group file">
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" id="inputGroupFile">
+            <label class="custom-file-label" for="inputGroupFile">Upload Company Icon</label>
+          </div>
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button">Upload</button>
+          </div>
+        </div>
+
+        <button type="button" (click)="companySignup()" class="btn btn-lg btn-block btn-outline-primary signup">Sign
+          Up</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="pt-4 my-md-5 pt-md-5 border-top">
+    <div class="row">
+      <div class="col-6 col-md">
+        <h5>Features</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="text-muted" href="#">Students</a></li>
+          <li><a class="text-muted" href="#">Companies</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Resources</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="text-muted" href="https://aws.amazon.com/rds/">AWS RDS</a></li>
+          <li><a class="text-muted" href="https://aws.amazon.com/ec2/">AWS EC2</a></li>
+          <li><a class="text-muted" href="https://spring.io/projects/spring-boot">Spring Boot</a></li>
+          <li><a class="text-muted" href="http://hibernate.org/">Hibernate</a></li>
+          <li><a class="text-muted" href="https://angular.io/">Angular</a></li>
+          <li><a class="text-muted" href="https://getbootstrap.com/docs/4.3/getting-started/introduction/">Bootstrap</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>About Us</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="text-muted" href="#">Meet the Team</a></li>
+          <li><a class="text-muted" href="https://revature.com/">Revature</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</div>

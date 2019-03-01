@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script');
+
+.container {
+    max-width: 960px;
+}
+
+#title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 36px;
+    color: #c4ffdd;
+}
+
+#customNavbar {
+    background-color: #113a5d;
+}
+
+.homeLink {
+    font-weight: bold;
+}
+
+.caption {
+    font-style: italic;
+    font-weight: 125;
+}
+
+.login {
+    margin: 0px 5px;
+    background-color: #113a5d;
+    color: #fff;
+}
+
+.login:hover {
+    background-color:#a6ddbd;
+}
+
+.intro-header {
+    max-width: 800px;
+}
+
+.display-4, .card-display {
+    color: #113a5d;
+}
+
+.card-deck .card {
+    min-width: 220px;
+}
+
+.border-top { 
+    border-top: 1px solid #e5e5e5; 
+}
+
+.border-bottom { 
+    border-bottom: 1px solid #e5e5e5; 
+}
+
+.box-shadow { 
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); 
+}
+
+.features {
+    font-size: 20px;
+    font-weight: 125;
+}
+
+.fa {
+    color: #a6ddbd;
+}
+
+.sign-up {
+    border-color: #113a5d !important;
+    background-color: #113a5d;
+    color: #fff;
+}
+
+.sign-up:hover {
+    background-color: #a6ddbd;
+    border-color: #a6ddbd !important;
+    color: #fff;
+}
