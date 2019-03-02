@@ -10,6 +10,9 @@ import { CompanyHomeComponent } from './components/company-home/company-home.com
 import { StudentFavsComponent } from './components/student-favs/student-favs.component';
 import { EventsComponent } from './components/events/events.component';
 import { JobListingsComponent } from './components/job-listings/job-listings.component';
+import { CompanyJobListingsComponent } from './components/company-job-listings/company-job-listings.component';
+import { CompanyEventsComponent } from './components/company-events/company-events.component';
+import { NewJobListingComponent } from './components/new-job-listing/new-job-listing.component';
 
 const routes: Routes = [
   // redirect empty path to login
@@ -33,17 +36,34 @@ const routes: Routes = [
     component: StudentHomeComponent,
     children: [{
       path: 'events',
-      component: EventsComponent
+      component: EventsComponent,
+      outlet: 'student-home'
     }, {
       path: 'job-listings',
-      component: JobListingsComponent
+      component: JobListingsComponent,
+      outlet: 'student-home'
     }]
   },{
     path: 'company-home',
-    component: CompanyHomeComponent
+    component: CompanyHomeComponent,
+    children: [{
+      path: 'events',
+      component: EventsComponent,
+      outlet: 'company-home'
+    }, {
+      path: 'company-job-listings',
+      component: CompanyJobListingsComponent,
+      outlet: 'company-home'
+    }]
   },{
     path: 'student-favs',
     component: StudentFavsComponent
+  },{
+    path: 'company-events',
+    component: CompanyEventsComponent
+  },{
+    path: 'new-job-listing',
+    component: NewJobListingComponent
   }
 ];
 

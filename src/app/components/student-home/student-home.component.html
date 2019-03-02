@@ -3,20 +3,27 @@
   <h5 id="title" class="my-0 mr-md-auto font-weight-normal">Fair Breeze</h5>
   <div class="icon-bar">
     <a class="icons" (click)="toFavorites()"><i class="fa fa-star"></i></a>
-    <a class="active icons" ><i class="fa fa-home"></i></a>
+    <a class="active icons"><i class="fa fa-home"></i></a>
   </div>
   <button type="button" (click)="logout()" class="btn btn-light logout">Log Out</button>
 </div>
 
 <div class="container">
   <!-- tabs -->
-  <div class="container-tabs">
-    <ul class="student-tabs">
-      <li class="tabs-a" routerLink="/student-home/events">Career Fairs</li>
-      <li class="tabs-a" routerLink="/student-home/job-listings">Job Listings</li>
-    </ul>
-  </div>
-  <router-outlet></router-outlet>
+  <div class="container-sub">
+  <ngb-tabset id="student-tabs" justify="fill">
+    <ngb-tab title="Career Fairs" class="s-tabs" routerLink='/event'>
+      <ng-template ngbTabContent>
+          <app-events></app-events>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab title="Job Listings" class="s-tabs">
+      <ng-template ngbTabContent>
+        <app-job-listings></app-job-listings>
+      </ng-template>
+    </ngb-tab>
+  </ngb-tabset>
+</div>
 
   <footer class="pt-4 my-md-5 pt-md-5 border-top">
     <div class="row">

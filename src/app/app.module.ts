@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -16,6 +17,7 @@ import { NewJobListingComponent } from './components/new-job-listing/new-job-lis
 import { CompanyEventsComponent } from './components/company-events/company-events.component';
 import { StudentFavsComponent } from './components/student-favs/student-favs.component';
 import { JobListingsComponent } from './components/job-listings/job-listings.component';
+import { CompanyJobListingsComponent } from './components/company-job-listings/company-job-listings.component';
 
 
 @NgModule({
@@ -31,13 +33,14 @@ import { JobListingsComponent } from './components/job-listings/job-listings.com
     NewJobListingComponent,
     CompanyEventsComponent,
     StudentFavsComponent,
-    JobListingsComponent
+    JobListingsComponent,
+    CompanyJobListingsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    AngularFontAwesomeModule
+    NgbModule
     ],
   providers: [],
   bootstrap: [AppComponent]

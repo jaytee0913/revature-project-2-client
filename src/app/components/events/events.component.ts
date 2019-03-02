@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./events.component.css']
 })
 export class EventsComponent implements OnInit {
-
+  public isCollapsed = false;
+  
   constructor() { }
 
   ngOnInit() {

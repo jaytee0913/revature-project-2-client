@@ -1,0 +1,56 @@
+<div class="new-listing">
+    <div class="row">
+        <div class="col-xs-12 col-sm-9"></div>
+        <div class="col-xs-12 col-sm-3"><button type="button" class="btn btn-light create">Create Job Listing    <i class="fa fa-calendar-plus"></i></button></div>
+    </div>
+</div>
+
+<div class="container">
+  <div class="card mb-4 box-shadow">
+    <!-- comp name, job name, city, state, dept, tags -->
+    <div class="card-body">
+      <div>
+          <div class="container">
+              <div class="row">
+                  <div class="col-xs-12 col-sm-5 px-0">
+                    <h1 class="job-titles">{{ job.jobTitle }}</h1>
+                  </div>
+                  <div class="col-xs-12 col-sm-4"></div>
+                  <div class="col-xs-12 col-sm-3">
+                      <button type="button" class="btn btn-light job-c" (click)="job.isCollapsed = !job.isCollapsed"
+                      [attr.aria-expanded]="!job.isCollapsed" aria-controls="collapseExample">
+                      More Info    <i class="fa fa-plus"></i>
+                    </button>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-xs-12 col-sm-8"><h3>Company:   </h3></div>
+                  <div class="col-xs-12 col-sm-4"><h3>{{ job.companyName }}</h3></div>
+                  <!-- <div class="col-xs-12 col-sm-6"></div> -->
+              </div>
+              <div class="row">
+                  <div class="col-xs-12 col-sm-3"></div>
+                  <div class="col-xs-12 col-sm-3"></div>
+                  <div class="col-xs-12 col-sm-3"></div>
+                  <div class="col-xs-12 col-sm-3"></div>
+              </div>
+          </div>
+        <!-- <h3 class="job-titles">Card title</h3>
+        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+        <p class="card-text">Some quick example text to build on the card tiarvat></p> -->
+        <!-- <div><h1 class="job-titles">{{ job.jobTitle }}</h1></div>
+        <div><span><h3>Company:   </h3><h3>{{ job.companyName }}</h3></span></div>
+        
+        <h3>City:</h3>
+        <h3>{{ job.city }}</h3>
+        <h3>{{ job.state }}</h3> -->
+      </div>
+      <div id="collapseExample" [ngbCollapse]="job.isCollapsed">
+          <div class="card-body">
+            <h3>Dept: {{ job.dept }}</h3>
+            <p>Description:  {{ job.description }}</p>
+            <!-- Display Tags here -->
+          </div>
+      </div>
+    </div>
+  </div>

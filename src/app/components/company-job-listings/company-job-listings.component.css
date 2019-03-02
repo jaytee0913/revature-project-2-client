@@ -1,0 +1,35 @@
+.add-btn {
+    color: #113a5d;
+}
+
+.job-c {
+    margin: 10px 5px;
+    background-color: #113a5d;
+    color: #fff;
+    font-size: 12px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.job-c:hover {
+    background-color: #a6ddbd;
+}
+
+.job-titles {
+    color: #113a5d;
+    font-size: 20px;
+    font-weight: 50;
+    width: 100%;
+    text-align: left;
+}
+
+.create {
+    margin: 10px 5px;
+    background-color: #113a5d;
+    color: #fff;
+}
+
+.create:hover {
+    background-color: #a6ddbd;
+}
