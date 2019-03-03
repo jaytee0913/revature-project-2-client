@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
+
 
 @Component({
   selector: 'app-student-signup',
@@ -13,25 +15,26 @@ export class StudentSignupComponent implements OnInit {
   password: string;
   confirmPassword: string;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
   }
 
   studentSignUp() {
-    console.log(this.email);
-    console.log(this.password);
-    console.log(this.firstName);
-    console.log(this.lastName);
-    console.log(this.confirmPassword);
-    this.router.navigateByUrl('/login');
-    // this.authService.authenticate(this.email, this.password,
-    //     () => this.router.navigate(['/viewprofile']),
-    //     (err) => {
-    //       this.router.navigate(['/']);
-    //       console.log(err);
-    //       console.log('not logged in');
-    //     });
+    const signupInput = {
+      firstName: this.firstName,
+      lastName: this.lastName,
+      email: this.email,
+      password: this.password
+    };
+
+    this.authService.studentSignUp(signupInput).subscribe(
+      (result) => {
+          this.router.navigateByUrl('/login');
+        }, (error) => {
+          window.alert('Invalid credentials');
+        }
+    )
   }
 
 }

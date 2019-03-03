@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http'; 
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -18,6 +19,9 @@ import { CompanyEventsComponent } from './components/company-events/company-even
 import { StudentFavsComponent } from './components/student-favs/student-favs.component';
 import { JobListingsComponent } from './components/job-listings/job-listings.component';
 import { CompanyJobListingsComponent } from './components/company-job-listings/company-job-listings.component';
+import { AuthService } from './services/auth.service';
+import { StudentService } from './services/student.service';
+import { CompanyService } from './services/company.service';
 
 
 @NgModule({
@@ -40,9 +44,10 @@ import { CompanyJobListingsComponent } from './components/company-job-listings/c
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
     ],
-  providers: [],
+  providers: [AuthService, StudentService, CompanyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
