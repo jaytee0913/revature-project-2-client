@@ -1,56 +1,70 @@
 <div class="new-listing">
-    <div class="row">
-        <div class="col-xs-12 col-sm-9"></div>
-        <div class="col-xs-12 col-sm-3"><button type="button" class="btn btn-light create">Create Job Listing    <i class="fa fa-calendar-plus"></i></button></div>
-    </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-9"></div>
+    <div class="col-xs-12 col-sm-3"><button type="button" (click)="toNewListing()" class="btn btn-light create">Create Job Listing <i
+          class="fa fa-calendar-plus"></i></button></div>
+  </div>
 </div>
 
 <div class="container">
-  <div class="card mb-4 box-shadow">
+  <div class="card mb-4 box-shadow" *ngFor="let job of allJobs; let i = index">
     <!-- comp name, job name, city, state, dept, tags -->
-    <div class="card-body">
+    <div class="card-body px-2 pt-2 pb-1">
       <div>
-          <div class="container">
-              <div class="row">
-                  <div class="col-xs-12 col-sm-5 px-0">
-                    <h1 class="job-titles">{{ job.jobTitle }}</h1>
-                  </div>
-                  <div class="col-xs-12 col-sm-4"></div>
-                  <div class="col-xs-12 col-sm-3">
-                      <button type="button" class="btn btn-light job-c" (click)="job.isCollapsed = !job.isCollapsed"
-                      [attr.aria-expanded]="!job.isCollapsed" aria-controls="collapseExample">
-                      More Info    <i class="fa fa-plus"></i>
-                    </button>
-                  </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 col-sm-5 px-0">
+              <h1 class="job-titles">{{ job.jobTitle }}</h1>
+            </div>
+            <div class="col-xs-12 col-sm-4"></div>
+            <div class="col-xs-12 col-sm-3 px-0">
+              <div *ngIf="job.isCollapsed==true; else elseBlock">
+                <button type="button" class="btn btn-light job-c" (click)="job.isCollapsed = false">
+                  More Info <i class="fa fa-plus"></i>
+                </button>
               </div>
-              <div class="row">
-                  <div class="col-xs-12 col-sm-8"><h3>Company:   </h3></div>
-                  <div class="col-xs-12 col-sm-4"><h3>{{ job.companyName }}</h3></div>
-                  <!-- <div class="col-xs-12 col-sm-6"></div> -->
-              </div>
-              <div class="row">
-                  <div class="col-xs-12 col-sm-3"></div>
-                  <div class="col-xs-12 col-sm-3"></div>
-                  <div class="col-xs-12 col-sm-3"></div>
-                  <div class="col-xs-12 col-sm-3"></div>
-              </div>
+              <ng-template #elseBlock>
+                  <button type="button" class="btn btn-light job-c" (click)="job.isCollapsed = true">
+                  Less Info <i class="fa fa-minus"></i>
+                </button>
+              </ng-template>
+            </div>
           </div>
-        <!-- <h3 class="job-titles">Card title</h3>
-        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-        <p class="card-text">Some quick example text to build on the card tiarvat></p> -->
-        <!-- <div><h1 class="job-titles">{{ job.jobTitle }}</h1></div>
-        <div><span><h3>Company:   </h3><h3>{{ job.companyName }}</h3></span></div>
-        
-        <h3>City:</h3>
-        <h3>{{ job.city }}</h3>
-        <h3>{{ job.state }}</h3> -->
+
+          <div class="row ml-1">
+            <div class="col-xs-12 col-sm-1 px-0"><h3 class="job-i">Company: </h3></div>
+            <div class="col-xs-12 col-sm-2"><h3 class="job-info">{{ job.companyName }}</h3></div>
+            <div class="col-xs-12 col-sm-1 px-0"><h3 class="job-i">Location: </h3></div>
+            <div class="col-xs-12 col-sm-2"><h3 class="job-info" [attr.location]="getLocation(i)">{{ location }}</h3></div>
+            <div class="col-xs-12 col-sm-6"></div>
+          </div>
+        </div>
+    
       </div>
       <div id="collapseExample" [ngbCollapse]="job.isCollapsed">
-          <div class="card-body">
-            <h3>Dept: {{ job.dept }}</h3>
-            <p>Description:  {{ job.description }}</p>
-            <!-- Display Tags here -->
-          </div>
+        <div class="card-body pt-0 pb-1">
+            <div class="row">
+                <div class="col-xs-12 col-sm-1"><h3 class="job-i">Dept: </h3></div>
+                <div class="col-xs-12 col-sm-3"><h3 class="job-info">{{ job.dept }}</h3></div>
+            </div>
+           
+            <div class="row">
+                <div class="col-xs-12 col-sm-2 pr-0"><h3 class="job-i mb-0"><i class="fa fa-info-circle"></i> Description:</h3></div>
+                <div class="col-xs-12 col-sm-10 pl-0"><h3 class="job-info">{{ job.description }}</h3></div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-1 pr-0 tagName vertical-center"><h3 class="job-i">Tags: </h3></div>
+                <div class="col-xs-12 col-sm-11">
+                  <div class="col-xs-12 col-sm-12 job-info pl-0">
+                    <ng-container class="job-info" *ngFor="let tag of tags">
+                        <button type="button" class="btn btn-light tagBtns">{{ tag }}</button>
+                    </ng-container>
+                  </div>
+                </div>
+            </div>
+        </div>
       </div>
     </div>
   </div>
+</div>
