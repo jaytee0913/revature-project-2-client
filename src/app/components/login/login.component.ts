@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
+
 
 @Component({
   selector: 'app-login',
@@ -10,10 +12,11 @@ export class LoginComponent implements OnInit {
   studentEmail: string;
   studentPassword: string;
 
-  companyEmail: string;
+  companyUsername: string;
   companyPassword: string;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router,
+              private authService: AuthService) {}
 
   ngOnInit() {}
 
@@ -25,26 +28,26 @@ export class LoginComponent implements OnInit {
   studentLogin() {
     console.log(this.studentEmail);
     console.log(this.studentPassword);
-    this.router.navigateByUrl('/student-home');
-    // this.authService.authenticate(this.email, this.password,
-    //     () => this.router.navigate(['/viewprofile']),
-    //     (err) => {
-    //       this.router.navigate(['/']);
-    //       console.log(err);
-    //       console.log('not logged in');
-    //     });
+    
+    this.authService.authenticate(this.studentEmail, this.studentPassword,
+        () => this.router.navigateByUrl('/student-home'),
+        (err) => {
+          this.router.navigate(['/login']);
+          console.log(err);
+          console.log('not logged in');
+        });
   }
 
   companyLogin() {
-    console.log(this.companyEmail);
+    console.log(this.companyUsername);
     console.log(this.companyPassword);
-    this.router.navigateByUrl('/company-home');
-    // this.authService.authenticate(this.email, this.password,
-    //     () => this.router.navigate(['/viewprofile']),
-    //     (err) => {
-    //       this.router.navigate(['/']);
-    //       console.log(err);
-    //       console.log('not logged in');
-    //     });
+    
+    this.authService.authenticate(this.companyUsername, this.companyPassword,
+        () => this.router.navigateByUrl('/company-home'),
+        (err) => {
+          this.router.navigate(['/login']);
+          console.log(err);
+          console.log('not logged in');
+        });
   }
 }
