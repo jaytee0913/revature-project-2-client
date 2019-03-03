@@ -37,6 +37,16 @@ export class AuthService {
             });
   }
 
+  companyLogin(credentials: any) {
+    const url = 'http://localhost:8080/login/business';
+    return this.http.post(url, credentials);
+  }
+
+  studentLogin(credentials: any) {
+    const url = 'http://localhost:8080/login/student';
+    return this.http.post(url, credentials);
+  }
+
   //clears the auth token
   logout() {
     localStorage.clear();
