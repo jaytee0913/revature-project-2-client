@@ -42,6 +42,11 @@ export class AuthService {
     return this.http.post(url, credentials);
   }
 
+  studentSignUp(signupInput: any) {
+    const url = `http://localhost:8080/signup/student`;
+    return this.http.post(url, signupInput);
+  }
+
   studentLogin(credentials: any) {
     const url = 'http://localhost:8080/login/student';
     return this.http.post(url, credentials);
