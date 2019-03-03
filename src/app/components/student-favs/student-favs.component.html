@@ -2,7 +2,7 @@
   class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 border-bottom box-shadow">
   <h5 id="title" class="my-0 mr-md-auto font-weight-normal">Fair Breeze</h5>
   <div class="icon-bar">
-    <a class="active"><i class="fa fa-star"></i></a>
+    <a class="active"><i class="fa fa-star fa-star-main"></i></a>
     <a (click)="toStudentHome()"><i class="fa fa-home"></i></a>
   </div>
   <button type="button" (click)="logout()" class="btn btn-light logout">Log Out</button>
@@ -10,7 +10,79 @@
 
 <div class="container">
   <!-- display favs -->
-    <h1 class="display-4 border-bottom">My Favorites   <i class="fa fa-star"></i></h1>
+    <h1 class="display-4 border-bottom">My Favorites   <i class="fa fa-star fa-star-main"></i></h1>
+
+    <div class="container mt-4">
+        <div class="card mb-4 box-shadow" *ngFor="let job of allJobs; let i = index">
+          <!-- comp name, job name, city, state, dept, tags -->
+          <div class="card-body px-2 pt-2 pb-1">
+            <div>
+              <div class="container">
+                <div class="row">
+                  <div class="col-xs-12 col-sm-5 px-0">
+                    <h1 class="job-titles">{{ job.jobTitle }}</h1>
+                  </div>
+                  <div class="col-xs-12 col-sm-4"></div>
+                  <div class="col-xs-12 col-sm-3 px-0">
+                    <div *ngIf="job.isCollapsed==true; else elseBlock">
+                      <button type="button" class="btn btn-light job-c info" (click)="job.isCollapsed = false">
+                        More Info <i class="fa fa-plus"></i>
+                      </button>
+                      <button type="button" class="btn btn-light job-c" [ngClass]="{'fav': job.isFavorite}" (click)="job.isFavorite = !job.isFavorite">
+                          <i class="fa fa-star"></i>
+                       </button>
+                    </div>
+                    <ng-template #elseBlock>
+                        <button type="button" class="btn btn-light job-c info" (click)="job.isCollapsed = true">
+                        Less Info <i class="fa fa-minus"></i>
+                      </button>
+                      <button type="button" class="btn btn-light job-c" [ngClass]="{'fav': job.isFavorite}" (click)="job.isFavorite = !job.isFavorite">
+                          <i class="fa fa-star"></i>
+                       </button>
+                    </ng-template>
+                  </div>
+                </div>
+      
+                <div class="row ml-1">
+                  <div class="col-xs-12 col-sm-1 px-0 text-align-sm-right"><h3 class="job-i">Company: </h3></div>
+                  <div class="col-xs-12 col-sm-2"><h3 class="job-info">{{ job.companyName }}</h3></div>
+                  <div class="col-xs-12 col-sm-1 px-0"><h3 class="job-i">Location: </h3></div>
+                  <div class="col-xs-12 col-sm-2"><h3 class="job-info">{{ getLocation(i) }}</h3></div>
+                  <div class="col-xs-12 col-sm-1 px-0"><h3 class="job-i">Type: </h3></div>
+                  <div class="col-xs-12 col-sm-2 pl-0"><h3 class="job-info">{{ job.type }}</h3></div>
+                  <div class="col-xs-12 col-sm-3"></div>
+                </div>
+              </div>
+          
+            </div>
+            <div id="collapseExample" [ngbCollapse]="job.isCollapsed">
+                <div class="card-body pt-0 pb-1">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-1 mr-3 pl-3"><h3 class="job-i">Dept: </h3></div>
+                        <div class="col-xs-12 col-sm-10"><h3 class="job-info">{{ job.dept }}</h3></div>
+                    </div>
+                   
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-2 pr-0"><h3 class="job-i mb-0">Description:</h3></div>
+                        <div class="col-xs-12 col-sm-10 pl-0"><h3 class="job-info">{{ job.description }}</h3></div>
+                    </div>
+      
+                  <div class="row">
+                      <div class="col-xs-12 col-sm-1 pr-0 tagName vertical-center"><h3 class="job-i">Tags: </h3></div>
+                      <div class="col-xs-12 col-sm-11">
+                        <div class="col-xs-12 col-sm-12 job-info pl-0">
+                          <ng-container class="job-info" *ngFor="let tag of tags">
+                              <button type="button" class="btn btn-light tagBtns">{{ tag }}</button>
+                          </ng-container>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
 
   <footer class="pt-4 my-md-5 pt-md-5 border-top">
     <div class="row">

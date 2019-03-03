@@ -13,6 +13,8 @@ import { JobListingsComponent } from './components/job-listings/job-listings.com
 import { CompanyJobListingsComponent } from './components/company-job-listings/company-job-listings.component';
 import { CompanyEventsComponent } from './components/company-events/company-events.component';
 import { NewJobListingComponent } from './components/new-job-listing/new-job-listing.component';
+import { StudentEventsPageComponent } from './components/student-events-page/student-events-page.component';
+import { CompanyEventsPageComponent } from './components/company-events-page/company-events-page.component';
 
 const routes: Routes = [
   // redirect empty path to login
@@ -64,6 +66,12 @@ const routes: Routes = [
   },{
     path: 'new-job-listing',
     component: NewJobListingComponent
+  },{
+    path: 'student-events-page',
+    component: StudentEventsPageComponent
+  }, {
+    path: 'company-events-page',
+    component: CompanyEventsPageComponent
   }
 ];
 

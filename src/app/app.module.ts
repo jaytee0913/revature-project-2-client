@@ -22,6 +22,10 @@ import { CompanyJobListingsComponent } from './components/company-job-listings/c
 import { AuthService } from './services/auth.service';
 import { StudentService } from './services/student.service';
 import { CompanyService } from './services/company.service';
+import { DeleteJobListingComponent } from './components/delete-job-listing/delete-job-listing.component';
+import { VeiwEventMapComponent } from './components/veiw-event-map/veiw-event-map.component';
+import { StudentEventsPageComponent } from './components/student-events-page/student-events-page.component';
+import { CompanyEventsPageComponent } from './components/company-events-page/company-events-page.component';
 
 
 @NgModule({
@@ -38,7 +42,11 @@ import { CompanyService } from './services/company.service';
     CompanyEventsComponent,
     StudentFavsComponent,
     JobListingsComponent,
-    CompanyJobListingsComponent
+    CompanyJobListingsComponent,
+    DeleteJobListingComponent,
+    VeiwEventMapComponent,
+    StudentEventsPageComponent,
+    CompanyEventsPageComponent
   ],
   imports: [
     BrowserModule,

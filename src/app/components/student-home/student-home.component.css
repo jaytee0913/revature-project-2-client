@@ -31,6 +31,7 @@
     float: right;
     width: 75px;
     text-align: center;
+    vertical-align: middle;
     padding: 5px 0;
     transition: all 0.3s ease;
     color: #fff;
@@ -38,11 +39,11 @@
 }
   
 .icon-bar a:hover {
-    background-color:#a6ddbd;
+    color:#a6ddbd;
 }
   
-.active {
-    background-color: #a6ddbd;
+.fa-home {
+    color:#a6ddbd;
 }
 
 .logout {
