@@ -10,6 +10,38 @@
     color: #c4ffdd;
 }
 
+.display-4 {
+    margin: 50px;
+    padding-bottom: 25px;
+    color: #113a5d;
+    font-size: 48px;
+}
+
+.csize {
+    max-height: 300px;
+    max-width: 300px;
+}
+
+.container-size {
+    height: 400px;
+}
+
+.job-i {
+    color: #113a5d;
+    font-size: 18px;
+    font-weight: 500;
+    width: 100%;
+    text-align: left;
+}
+
+.job-info {
+    color: #113a5d;
+    font-size: 18px;
+    font-weight: 185;
+    width: 100%;
+    text-align: left;
+}
+
 #customNavbar {
     background-color: #113a5d;
 }

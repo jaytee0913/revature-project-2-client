@@ -10,8 +10,8 @@
     float: right;
 }
 
-.job-c:hover {
-    background-color: #a6ddbd;
+.info {
+    width: 100px;
 }
 
 .job-titles {
@@ -29,6 +29,18 @@
     width: 100%;
     text-align: left;
 }
+
+.fav {
+    margin: 0px;
+    background-color: #a6ddbd;
+    color: #fff;
+    font-size: 12px;
+    float: right;
+}
+
+/* .fav:hover {
+    background-color: #113a5d;
+} */
 
 .job-info {
     color: #113a5d;

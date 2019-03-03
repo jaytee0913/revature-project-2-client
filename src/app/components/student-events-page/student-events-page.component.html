@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row main-row ml-1">
+      <div class="col-xs-12 col-sm-9">
+       
+      </div>
+    </div>
+    <h1 class="display-4 border-bottom">{{ event.eventTitle }}</h1>
+    <div>
+      <div class="container container-size">
+        <div class="row">
+          <div class="col-xs-12 col-sm-1"></div>
+          <div class="col-xs-12 col-sm-2 px-0 pt-4 text-align-sm-left">
+            <h3 class="job-i">Date: </h3>
+            <h3 class="job-info">{{ event.date | date:'short' }}</h3>
+            <h3 class="job-i">Building: </h3>
+            <h3 class="job-info">{{ event.building }}</h3>
+            <h3 class="job-i">Address: </h3>
+            <h3 class="job-info">{{ event.address }}</h3>
+          </div>
+          <div class="col-xs-12 col-sm-3 pt-4">
+            <h3 class="job-i">Location: </h3>
+            <h3 class="job-info">{{ event.location }}</h3>
+          
+          </div>
+          <div class="col-xs-12 col-sm-6 csize">
+            <div class="card">
+              <img src="../../../assets/pics/tamu-fair.jpg" alt="Picture4" class="img-responsive card-img-top">
+              <div class="caption card-body">Meeting up with potential employers is a breeze!</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>

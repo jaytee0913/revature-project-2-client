@@ -31,6 +31,7 @@
     float: right;
     width: 75px;
     text-align: center;
+    vertical-align: middle;
     padding: 5px 0;
     transition: all 0.3s ease;
     color: #fff;
@@ -38,11 +39,11 @@
 }
   
 .icon-bar a:hover {
-    background-color:#a6ddbd;
+    color:#a6ddbd;
 }
   
-.active {
-    background-color: #a6ddbd;
+.fa-star-main {
+    color:#a6ddbd;
 }
 
 .display-4 {
@@ -50,6 +51,71 @@
     padding-bottom: 25px;
     color: #113a5d;
     font-size: 30px;
+}
+
+.add-btn {
+    color: #113a5d;
+}
+
+.job-c {
+    margin: 0px;
+    background-color: #113a5d;
+    color: #fff;
+    font-size: 12px;
+    float: right;
+}
+
+.info {
+    width: 100px;
+}
+
+.job-titles {
+    color: #113a5d;
+    font-size: 20px;
+    font-weight: 50;
+    width: 100%;
+    text-align: left;
+}
+
+.job-i {
+    color: #113a5d;
+    font-size: 14px;
+    font-weight: 500;
+    width: 100%;
+    text-align: left;
+}
+
+.fav {
+    margin: 0px;
+    background-color: #a6ddbd;
+    color: #fff;
+    font-size: 12px;
+    float: right;
+}
+
+.job-info {
+    color: #113a5d;
+    font-size: 14px;
+    font-weight: 185;
+    width: 100%;
+    text-align: left;
+}
+
+.tagName {
+    height: 30px;
+}
+
+.tagBtns {
+    margin: 0 3px;
+    background-color: #113a5d;
+    color: #fff;
+    font-size: 10px;
+    padding: 4px;
+}
+
+.tagBtns:hover {
+    border-color: #a6ddbd;
+    border-width: 2px;
 }
 
 .logout {
