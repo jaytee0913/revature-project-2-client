@@ -35,19 +35,6 @@ export class StudentSignupComponent implements OnInit {
           window.alert('Invalid credentials');
         }
     )
-    // console.log(this.email);
-    // console.log(this.password);
-    // console.log(this.firstName);
-    // console.log(this.lastName);
-    // console.log(this.confirmPassword);
-    // this.router.navigateByUrl('/login');
-    // this.authService.authenticate(this.email, this.password,
-    //     () => this.router.navigate(['/login']),
-    //     (err) => {
-    //       this.router.navigate(['/']);
-    //       console.log(err);
-    //       console.log('not logged in');
-    //     });
   }
 
 }

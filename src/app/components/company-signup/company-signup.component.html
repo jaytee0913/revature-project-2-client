@@ -21,11 +21,19 @@
       </div>
 
       <div class="card-body">
+          <div class="form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-users"></i></span>
+                <input class="form-control" type="text" id="companyName" name="companyName" placeholder="Enter Company name"
+                  [(ngModel)]="companyName" required />
+              </div>
+            </div>
+
         <div class="form-group">
           <div class="input-group-prepend">
             <span class="input-group-text"><i class="fas fa-users"></i></span>
             <input class="form-control" type="text" id="username" name="username" placeholder="Enter Company Username"
-              [(ngModel)]="username" required email />
+              [(ngModel)]="username" required />
           </div>
         </div>
 
@@ -33,7 +41,7 @@
           <div class="input-group-prepend">
             <span class="input-group-text"><i class="fas fa-align-justify"></i></span>
             <input class="form-control" type="textarea" id="description" name="description"
-              placeholder="Enter Company Description" [(ngModel)]="description" required email />
+              placeholder="Enter Company Description" [(ngModel)]="description" required />
           </div>
         </div>
 

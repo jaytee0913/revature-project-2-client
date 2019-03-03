@@ -37,6 +37,11 @@ export class AuthService {
             });
   }
 
+  companySignUp(signupInput: any) {
+    const url = `http://localhost:8080/signup/business`;
+    return this.http.post(url, signupInput);
+  }
+  
   companyLogin(credentials: any) {
     const url = 'http://localhost:8080/login/business';
     return this.http.post(url, credentials);
