@@ -113,12 +113,48 @@
         </div>
 
         <div class="form-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fas fa-tags"></i></span>
-              <input class="form-control" type="textarea" id="inputTags" name="inputTags" placeholder="Enter Tags"
-                [(ngModel)]="inputTags" required />
-            </div>
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-tags"></i></span>
+            <input class="form-control" type="textarea" id="inputTags" name="inputTags" placeholder="Enter Tags"
+              [(ngModel)]="inputTags" required />
           </div>
+        </div>
+
+        <!-- ME COPYING FROM ANGULAR MATERIAL, MAKING NECESSARY CHANGES -->
+        <!-- <div class="form-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-tags"></i></span>
+            <mat-form-field class="chip-list">
+              <mat-chip-list #chipList>
+                <mat-chip *ngFor="let tag of tags" [selectable]="selectable" [removable]="removable"
+                  (removed)="remove(tag)">
+                  {{tag.tagName}}
+                  <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                </mat-chip>
+                <input class="form-control" id="inputTags" name="inputTags" placeholder="Enter Tags"
+                  [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                  [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add($event)" [required]="isRequired" />
+              </mat-chip-list>
+            </mat-form-field>
+          </div>
+        </div> -->
+
+
+        <!-- ANGULAR MATERIAL EXAMPLE -->
+        <!-- <mat-form-field class="example-chip-list">
+          <mat-chip-list #chipList>
+            <mat-chip *ngFor="let fruit of fruits" [selectable]="selectable"
+                     [removable]="removable" (removed)="remove(fruit)">
+              {{fruit.name}}
+              <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+            </mat-chip>
+            <input placeholder="New fruit..."
+                   [matChipInputFor]="chipList"
+                   [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                   [matChipInputAddOnBlur]="addOnBlur"
+                   (matChipInputTokenEnd)="add($event)">
+          </mat-chip-list>
+        </mat-form-field> -->
 
         <div class="form-row">
           <button type="button" (click)="toCompanyHome()" id="addListing"

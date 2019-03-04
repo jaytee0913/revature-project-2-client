@@ -5,7 +5,8 @@
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
-    "module": "es2015",
+    "module": "es2015",  // Change this to "module": "commonjs" when using coderunner for typescript. Else, leave
+                         // it as "es2015"
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,

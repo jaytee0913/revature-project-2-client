@@ -46,7 +46,8 @@
 .card {
     min-width: 200px;
     max-width: 700px;
-    height: 540px;
+    /* height: 540px; */
+    height: 700px;
     position: relative;
     align-content: center;
     margin: 0 auto;
@@ -150,3 +151,24 @@ select:required:invalid {
 .logout:hover {
     background-color:#a6ddbd;
 }
+
+mat-form-field {
+    width: 557px !important;
+}
+
+#inputTags {
+    width: 100%;
+}
+
+#inputTags:required{
+    color: #636c72;
+    box-shadow: 0 0 1.5px 1px red;
+}
+
+.chip-list {
+    width: 100%;
+}
+
+/* .example-chip-list {
+    width: 100%;
+  } */
