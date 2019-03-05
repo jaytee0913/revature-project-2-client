@@ -37,6 +37,26 @@ export class AuthService {
             });
   }
 
+  companySignUp(signupInput: any) {
+    const url = `http://localhost:8080/signup/business`;
+    return this.http.post(url, signupInput);
+  }
+  
+  companyLogin(credentials: any) {
+    const url = 'http://localhost:8080/login/business';
+    return this.http.post(url, credentials);
+  }
+
+  studentSignUp(signupInput: any) {
+    const url = `http://localhost:8080/signup/student`;
+    return this.http.post(url, signupInput);
+  }
+
+  studentLogin(credentials: any) {
+    const url = 'http://localhost:8080/login/student';
+    return this.http.post(url, credentials);
+  }
+
   //clears the auth token
   logout() {
     localStorage.clear();

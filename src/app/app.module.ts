@@ -10,8 +10,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { AppRoutingModule } from './app-routing.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { FormsModule } from '@angular/forms';
 import { FrontPageComponent } from './components/front-page/front-page.component';
 import { CompanySignupComponent } from './components/company-signup/company-signup.component';
 import { StudentSignupComponent } from './components/student-signup/student-signup.component';
@@ -28,6 +29,12 @@ import { StudentService } from './services/student.service';
 import { CompanyService } from './services/company.service';
 import { MaterialModule } from './material.module'; //*
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DeleteJobListingComponent } from './components/delete-job-listing/delete-job-listing.component';
+import { VeiwEventMapComponent } from './components/veiw-event-map/veiw-event-map.component';
+import { CompanyEventsPageComponent } from './components/company-events-page/company-events-page.component';
+import { EventJobListingsComponent } from './components/event-job-listings/event-job-listings.component';
+import { EventCompaniesComponent } from './components/event-companies/event-companies.component';
+import { CompanyViewMapComponent } from './components/company-view-map/company-view-map.component';
 
 
 @NgModule({
@@ -44,7 +51,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CompanyEventsComponent,
     StudentFavsComponent,
     JobListingsComponent,
-    CompanyJobListingsComponent
+    CompanyJobListingsComponent,
+    DeleteJobListingComponent,
+    VeiwEventMapComponent,
+    CompanyEventsPageComponent,
+    EventJobListingsComponent,
+    EventCompaniesComponent,
+    CompanyViewMapComponent
   ],
   imports: [
     BrowserModule,

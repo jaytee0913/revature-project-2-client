@@ -29,6 +29,10 @@ export class NewJobListingComponent implements OnInit {
     this.router.navigateByUrl('/company-home');
   }
 
+  toCompanyEvents() {
+    this.router.navigateByUrl('/company-events');
+  }
+
   logout(){
     this.router.navigateByUrl('/front-page');
   }
