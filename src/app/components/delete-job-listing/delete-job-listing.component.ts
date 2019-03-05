@@ -7,7 +7,6 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./delete-job-listing.component.css']
 })
 export class DeleteJobListingComponent implements OnInit {
-  companyPassword: String;
   jobTitle: String = 'Software Development Position';
 
   constructor(private modalService: NgbModal) {}
@@ -22,7 +21,6 @@ export class DeleteJobListingComponent implements OnInit {
         console.log('Cancelled');
       }
 
-      console.log(this.companyPassword);
     }, (reason) => {
       console.log('Closed');
     });

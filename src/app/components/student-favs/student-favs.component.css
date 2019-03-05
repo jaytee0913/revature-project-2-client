@@ -118,6 +118,14 @@
     border-width: 2px;
 }
 
+.pages-c {
+    text-align: center;
+}
+
+.pages {
+    display: inline-block;
+}
+
 .logout {
     margin: 0px 5px;
     background-color: #113a5d;

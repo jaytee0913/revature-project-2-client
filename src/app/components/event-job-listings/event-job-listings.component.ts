@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-job-listings',
-  templateUrl: './job-listings.component.html',
-  styleUrls: ['./job-listings.component.css']
+  selector: 'app-event-job-listings',
+  templateUrl: './event-job-listings.component.html',
+  styleUrls: ['./event-job-listings.component.css']
 })
-export class JobListingsComponent implements OnInit {
+export class EventJobListingsComponent implements OnInit {
   job = {
     isCollapsed: true,
     jobTitle: 'Computer Engineer',
@@ -44,11 +43,11 @@ export class JobListingsComponent implements OnInit {
     tags: ['Internship', 'On Job Training', 'Fun', 'We are Microsoft']
   };
   page: Number = 1;
-  pageSize: Number = 2;
+  jobListSize: Number = 40;
   location: any;
   allJobs: any = [this.job, this.job2, this.job3];
 
-  constructor(private router: Router) { }
+  constructor() { }
 
   ngOnInit() {
     this.displayJobListings();
@@ -64,4 +63,5 @@ export class JobListingsComponent implements OnInit {
     this.location = this.allJobs[i].city + ', ' + this.allJobs[i].state;
     return this.location;
   }
+
 }

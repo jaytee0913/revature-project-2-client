@@ -2,6 +2,11 @@
     color: #113a5d;
 }
 
+.event-i {
+    width: 105px;
+    height: 60px;
+}
+
 .job-c {
     margin: 0px;
     background-color: #113a5d;
@@ -10,8 +15,13 @@
     float: right;
 }
 
-.job-c:hover {
-    background-color: #a6ddbd;
+.event-btn {
+    font-size: 16px;
+    color: #fff;
+}
+
+.info {
+    width: 100px;
 }
 
 .job-titles {
@@ -54,7 +64,6 @@
     border-color: #a6ddbd;
     border-width: 2px;
 }
-
 
 .create {
     margin: 10px 5px;
