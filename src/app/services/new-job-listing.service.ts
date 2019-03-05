@@ -2,7 +2,7 @@
 import { Component } from '@angular/core';
 //simport { MatChipInputEvent } from '@angular/material';
 import { Injectable } from '@angular/core';
-import { Tag } from '../models/tag/tag';
+import { Tags } from '../models/tag/tag';
 
 
 

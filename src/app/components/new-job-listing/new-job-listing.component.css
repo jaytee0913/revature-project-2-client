@@ -181,9 +181,9 @@ select:required:invalid {
 
 .fa-times {
     cursor: pointer;
-    opacity: 30%;
+    opacity: .5;
 }
 
 .fa-times:hover {
-    opacity: 80%;
+    opacity: .8;
 }
