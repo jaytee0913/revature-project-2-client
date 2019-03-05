@@ -43,6 +43,8 @@ export class StudentFavsComponent implements OnInit {
     description: 'Best Job Ever! Microsoft Life!',
     tags: ['Internship', 'On Job Training', 'Fun', 'We are Microsoft']
   };
+  page: Number = 1;
+  pageSize: Number = 2;
   location: any;
   allJobs: any = [this.job, this.job2, this.job3];
 

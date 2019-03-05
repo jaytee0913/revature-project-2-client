@@ -1,0 +1,52 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-6" *ngFor="let company of allCompanies; let i = index">
+      <div class="card mb-4 box-shadow">
+        <div class="card-body px-2 pt-2 pb-1">
+          <div>
+            <div class="container">
+              <div class="row">
+                <div class="col-xs-12 col-sm-6 px-0">
+                  <h1 class="job-titles">{{ company.companyName }}</h1>
+                </div>
+                <div class="col-xs-12 col-sm-3"></div>
+                <div class="col-xs-12 col-sm-3 px-0">
+                  <div *ngIf="company.isCollapsed==true; else elseBlock">
+                    <button type="button" class="btn btn-light job-c info" (click)="company.isCollapsed = false">
+                      More Info <i class="fa fa-plus"></i>
+                    </button>
+                  </div>
+                  <ng-template #elseBlock>
+                    <button type="button" class="btn btn-light job-c info" (click)="company.isCollapsed = true">
+                      Less Info <i class="fa fa-minus"></i>
+                    </button>
+                  </ng-template>
+                </div>
+              </div>
+
+              <div class="row ml-1">
+                <!-- Add company photo -->
+              </div>
+            </div>
+
+          </div>
+          <div id="collapseExample" [ngbCollapse]="company.isCollapsed">
+            <div class="card-body pt-0 pb-1">
+              <div class="row">
+                <div class="col-xs-12 col-sm-12">
+                  <h3 class="job-i mb-0">Description:</h3>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-xs-12 col-sm-12">
+                  <h3 class="job-info">{{ company.description }}</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">{{ getEventTitle() }}</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  
+    <div class="modal-body align-center">
+      <div class="event-titles">
+        <h1><i class="fa fa-map"></i> Map</h1>
+      </div>
+  
+      <div class="card mb-4 box-shadow">
+        <div class="card-body px-2 pt-2 pb-1">
+          <div class="container">
+            <div class="row">
+              <img src="../../../assets/pics/Floorplan - Student Copy_0.jpg" alt="Picture13" class="img-responsive">
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  
+    <div class="modal-footer">
+      <button type="button" class="btn btn-light job-c info" (click)="modal.close(0)">Close</button>
+    </div>
+  </ng-template>
+  
+  <button type="button" class="btn btn-light job-c event-i mr-10" (click)="openLg(content)">
+    <i class="fa fa-map"></i> Event Map
+  </button>
+  
+  <pre>{{closeResult}}</pre>

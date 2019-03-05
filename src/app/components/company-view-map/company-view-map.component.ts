@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-veiw-event-map',
-  templateUrl: './veiw-event-map.component.html',
-  styleUrls: ['./veiw-event-map.component.css']
+  selector: 'app-company-view-map',
+  templateUrl: './company-view-map.component.html',
+  styleUrls: ['./company-view-map.component.css']
 })
-export class VeiwEventMapComponent implements OnInit {
+export class CompanyViewMapComponent implements OnInit {
   companyPassword: String;
   eventTitle: String = 'TAMU Career Fair';
 
-  constructor(private modalService: NgbModal) {}
+  constructor(private modalService: NgbModal) { }
 
   ngOnInit() {
   }
@@ -22,4 +22,5 @@ export class VeiwEventMapComponent implements OnInit {
   getEventTitle(){
     return '  ' + this.eventTitle;
   }
+
 }
