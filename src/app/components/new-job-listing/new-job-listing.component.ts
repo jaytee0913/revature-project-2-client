@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Tags } from './../../models/tag/tag';
+import { JobListing } from 'src/app/models/job-listing/job-listing';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-new-job-listing',
@@ -13,12 +14,13 @@ export class NewJobListingComponent implements OnInit {
   maxTags: boolean = false;
   tags: string[] = [];
 
-  // jobTitle: string = '';
-  // city: string;
-  // companyTags: Tags;
+  
   
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private authService: AuthService) { }
+
+  addNewJob() {}
+
 
   ngOnInit() {
   }
