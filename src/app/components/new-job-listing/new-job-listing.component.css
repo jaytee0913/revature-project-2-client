@@ -46,7 +46,8 @@
 .card {
     min-width: 200px;
     max-width: 700px;
-    height: 540px;
+    /* height: 540px; */
+    height: 650px;
     position: relative;
     align-content: center;
     margin: 0 auto;
@@ -146,4 +147,43 @@ select:required:invalid {
 
 .logout:hover {
     background-color:#a6ddbd;
+}
+
+#inputTags {
+    width: 100%;
+}
+
+#inputTags:required{
+    color: #636c72;
+    box-shadow: 0 0 1.5px 1px red;
+}
+
+
+/* These are the only 
+    styles needed for the chips themselves, along with the 'x' button
+    that allows you to delete them.
+    -TW
+*/
+.chip {
+    display: inline-block;
+    padding: 0 25px;
+    height: 30px;
+    font-size: 16px;
+    line-height: 30px;
+    border-radius: 25px;
+    background-color: #f1f1f1;
+}
+
+.max-tag-message {
+    font-style: italic;
+    color: red;
+}
+
+.fa-times {
+    cursor: pointer;
+    opacity: .5;
+}
+
+.fa-times:hover {
+    opacity: .8;
 }

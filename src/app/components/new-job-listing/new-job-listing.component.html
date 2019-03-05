@@ -112,13 +112,29 @@
           </div>
         </div>
 
+        <!-- The form-group and input-group-prepend divs may be deleted, but it will cause style changes. -->
+        <!-- If you want to get rid of the tags icon, delete the input-group-text span. -->
+        <!-- The aforementioned divs (and span) are from bootstrap. -->
+        <!-- The way it is now, the tags will appear below the input form... it is difficult to make -->
+        <!-- the tags appear inside the form.  -TW -->
         <div class="form-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fas fa-tags"></i></span>
-              <input class="form-control" type="textarea" id="inputTags" name="inputTags" placeholder="Enter Tags"
-                [(ngModel)]="inputTags" required />
-            </div>
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-tags"></i></span>
+            <input class="form-control" type="textarea" id="inputTags" name="inputTags" placeholder="Enter Tags"
+              [(ngModel)]="currentTag" (keydown.enter)="addTag(currentTag)" />
           </div>
+        </div>
+        <div class="max-tag-message" *ngIf="atMaxTags()">
+          Maximum number of tags reached.
+        </div>
+        <div class="chips">
+            <div class="chip" *ngFor="let tag of tags">
+              {{tag}}
+              <i class="fas fa-times" (click)="deleteTag(tag)"></i>
+            </div>
+        </div>
+        <br>
+        <br>
 
         <div class="form-row">
           <button type="button" (click)="toCompanyHome()" id="addListing"
