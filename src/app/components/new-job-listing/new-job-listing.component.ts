@@ -1,3 +1,4 @@
+import { Tags } from './../../models/tag/tag';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -10,14 +11,19 @@ export class NewJobListingComponent implements OnInit {
   isDeleted: boolean = false;
   currentTag: string = '';
   maxTags: boolean = false;
-
   tags: string[] = [];
 
+  // jobTitle: string = '';
+  // city: string;
+  // companyTags: Tags;
+  
 
   constructor(private router: Router) { }
 
   ngOnInit() {
   }
+
+  addListing() {}
 
   toCompanyHome() {
     this.router.navigateByUrl('/company-home');
