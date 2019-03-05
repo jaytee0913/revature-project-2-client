@@ -112,6 +112,11 @@
           </div>
         </div>
 
+        <!-- The form-group and input-group-prepend divs may be deleted, but it will cause style changes. -->
+        <!-- If you want to get rid of the tags icon, delete the input-group-text span. -->
+        <!-- The aforementioned divs (and span) are from bootstrap. -->
+        <!-- The way it is now, the tags will appear below the input form... it is difficult to make -->
+        <!-- the tags appear inside the form.  -TW -->
         <div class="form-group">
           <div class="input-group-prepend">
             <span class="input-group-text"><i class="fas fa-tags"></i></span>
@@ -129,8 +134,8 @@
             </div>
         </div>
         <br>
-
         <br>
+
         <div class="form-row">
           <button type="button" (click)="toCompanyHome()" id="addListing"
             class="btn btn-lg btn-block btn-outline-primary signup">Add
