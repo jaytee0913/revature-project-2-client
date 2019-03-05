@@ -1,6 +1,6 @@
-import { Tags } from './../../models/tag/tag';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+// import { Tags } from './../../models/tag/tag';
 
 @Component({
   selector: 'app-new-job-listing',
