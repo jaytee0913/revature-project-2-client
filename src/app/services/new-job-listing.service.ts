@@ -1,6 +1,6 @@
-import { COMMA, ENTER, SPACE } from '@angular/cdk/keycodes';
+//import { COMMA, ENTER, SPACE } from '@angular/cdk/keycodes';
 import { Component } from '@angular/core';
-import { MatChipInputEvent } from '@angular/material';
+//simport { MatChipInputEvent } from '@angular/material';
 import { Injectable } from '@angular/core';
 import { Tag } from '../models/tag/tag';
 
@@ -14,37 +14,9 @@ import { Tag } from '../models/tag/tag';
 
 @Injectable()
 export class NewJobListingService {
-    visible = true;
-    selectable = true;
-    removable = true;
-    addOnBlur = true;
-    readonly separatorKeysCodes: number[] = [ENTER, COMMA, SPACE];
+    hideElement: boolean = true;
 
-
-    tags: Tag[] = [];
-
-    add(event: MatChipInputEvent): void {
-        const input = event.input;
-        const value = event.value;
-
-        // Add our tag
-        if ((value || '').trim()) {
-            this.tags.push({ tagName: value.trim() });
-        }
-
-        // Reset the input value
-        if (input) {
-            input.value = '';
-        }
-    }
-
-    remove(tag: Tag): void {
-        const index = this.tags.indexOf(tag);
-
-        if (index >= 0) {
-            this.tags.splice(index, 1);
-        }
-    }
+    
 }
 // import {COMMA, ENTER, SPACE} from '@angular/cdk/keycodes';
 // import {Component} from '@angular/core';

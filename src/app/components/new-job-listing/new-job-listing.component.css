@@ -47,7 +47,7 @@
     min-width: 200px;
     max-width: 700px;
     /* height: 540px; */
-    height: 700px;
+    height: 650px;
     position: relative;
     align-content: center;
     margin: 0 auto;
@@ -165,10 +165,21 @@ mat-form-field {
     box-shadow: 0 0 1.5px 1px red;
 }
 
-.chip-list {
-    width: 100%;
+.chip {
+    display: inline-block;
+    padding: 0 25px;
+    height: 30px;
+    font-size: 16px;
+    line-height: 30px;
+    border-radius: 25px;
+    background-color: #f1f1f1;
 }
 
-/* .example-chip-list {
-    width: 100%;
-  } */
+.max-tag-message {
+    font-style: italic;
+    color: red;
+}
+
+.fa-times {
+    cursor: pointer;
+}
