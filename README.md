@@ -21,9 +21,10 @@ Companies using FB will enjoy the following features: <br>
 -- Viewing the job listings they are displaying to students <br>
 -- Deleting job listings <br>
 -- Viewing career fair events to which they can RSVP <br>
--- RSVP-ing to a specific career fair event; during which they can select the specific booth they will be in during the event <br>
+-- RSVP-ing to a specific career fair event; during which they can select the specific booth they will be in during the event <br>  <br>
 
-
+## Installation/Use Instructions
+**This will be added at a future time**
 
 ## Development server
 
