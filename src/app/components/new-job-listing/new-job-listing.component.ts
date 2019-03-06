@@ -46,7 +46,7 @@ export class NewJobListingComponent implements OnInit {
 
   addListing() {
     if (this.validate()) {
-      console.log(this.newJob);
+      console.log(this.newJob); // CHANGE THIS LINE FOR DATA SENDING
     } else {
       this.makeNeededString();
       alert(`Please fill out the required fields: ${this.neededString}`);
