@@ -4,5 +4,6 @@ export class JobListing {
     public state: string;
     public department: string;
     public type: string;
+    public description: string;
     public tags: string[];
 }

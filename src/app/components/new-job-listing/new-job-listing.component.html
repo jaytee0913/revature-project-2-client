@@ -112,6 +112,14 @@
           </div>
         </div>
 
+        <div class="form-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-align-justify"></i></span>
+            <textarea class="form-control" id="description" name="description" rows="2" [(ngModel)]="newJob.description"
+              placeholder="Enter a Brief Description" required></textarea>
+          </div>
+        </div>
+
         <!-- The form-group and input-group-prepend divs may be deleted, but it will cause style changes. -->
         <!-- If you want to get rid of the tags icon, delete the input-group-text span. -->
         <!-- The aforementioned divs (and span) are from bootstrap. -->
@@ -128,10 +136,10 @@
           Maximum number of tags reached.
         </div>
         <div class="chips">
-            <div class="chip" *ngFor="let tag of newJob.tags">
-              {{tag}}
-              <i class="fas fa-times" (click)="deleteTag(tag)"></i>
-            </div>
+          <div class="chip" *ngFor="let tag of newJob.tags">
+            {{tag}}
+            <i class="fas fa-times" (click)="deleteTag(tag)"></i>
+          </div>
         </div>
         <br>
         <br>

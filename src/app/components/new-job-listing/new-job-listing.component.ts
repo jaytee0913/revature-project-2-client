@@ -21,6 +21,7 @@ export class NewJobListingComponent implements OnInit {
     state: '',
     department: '',
     type: '',
+    description: '',
     tags: []
   };
 
@@ -58,7 +59,7 @@ export class NewJobListingComponent implements OnInit {
   validate(): boolean {
     if (this.newJob.jobTitle === '' || this.newJob.city === '' 
           || this.newJob.state === '' || this.newJob.department === ''
-          || this.newJob.type === '') {
+          || this.newJob.type === '' || this.newJob.description === '') {
       if (this.newJob.jobTitle === '') {
         this.needed.push("Job Title");
       }
@@ -73,6 +74,9 @@ export class NewJobListingComponent implements OnInit {
       }
       if (this.newJob.type === '') {
         this.needed.push("Job Type");
+      }
+      if (this.newJob.description === '') {
+        this.needed.push("Description");
       }
       return false;
     } else {

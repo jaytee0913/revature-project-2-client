@@ -47,7 +47,8 @@
     min-width: 200px;
     max-width: 700px;
     /* height: 540px; */
-    height: 650px;
+    height: auto;
+    min-height: 750px;
     position: relative;
     align-content: center;
     margin: 0 auto;
@@ -186,4 +187,10 @@ select:required:invalid {
 
 .fa-times:hover {
     opacity: .8;
+}
+
+#description {
+    min-height: 100px;
+    max-height: 200px;
+    height: 100px;
 }
