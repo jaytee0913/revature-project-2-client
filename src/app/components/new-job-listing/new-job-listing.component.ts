@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Tags } from './../../models/tag/tag';
+import { JobListing } from 'src/app/models/job-listing/job-listing';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-new-job-listing',
@@ -11,19 +12,77 @@ export class NewJobListingComponent implements OnInit {
   isDeleted: boolean = false;
   currentTag: string = '';
   maxTags: boolean = false;
-  tags: string[] = [];
+  needed: string[] = []
+  neededString: string = ``;
 
-  // jobTitle: string = '';
-  // city: string;
-  // companyTags: Tags;
+  newJob: JobListing = {
+    jobTitle: '',
+    city: '',
+    state: '',
+    department: '',
+    type: '',
+    description: '',
+    tags: []
+  };
+
   
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private authService: AuthService) { }
+
 
   ngOnInit() {
   }
 
-  addListing() {}
+  makeNeededString() {
+    let i: number;
+    if (this.needed.length == 1) {
+      this.neededString += `${this.needed[0]}`;
+    } else {
+      for (i = 0; i < this.needed.length-1; i++) {
+        this.neededString += `${this.needed[i]}, `;
+      }
+      this.neededString += `${this.needed[this.needed.length-1]}`;
+    }
+  }
+
+  addListing() {
+    if (this.validate()) {
+      console.log(this.newJob); // CHANGE THIS LINE FOR DATA SENDING
+    } else {
+      this.makeNeededString();
+      alert(`Please fill out the required fields: ${this.neededString}`);
+      this.needed = [];
+      this.neededString = '';
+    }
+  }
+
+  validate(): boolean {
+    if (this.newJob.jobTitle === '' || this.newJob.city === '' 
+          || this.newJob.state === '' || this.newJob.department === ''
+          || this.newJob.type === '' || this.newJob.description === '') {
+      if (this.newJob.jobTitle === '') {
+        this.needed.push("Job Title");
+      }
+      if (this.newJob.city === '') {
+        this.needed.push("City");
+      }
+      if (this.newJob.state === '') {
+        this.needed.push("State");
+      }
+      if (this.newJob.department === '') {
+        this.needed.push("Department");
+      }
+      if (this.newJob.type === '') {
+        this.needed.push("Job Type");
+      }
+      if (this.newJob.description === '') {
+        this.needed.push("Description");
+      }
+      return false;
+    } else {
+      return true;
+    }
+  }
 
   toCompanyHome() {
     this.router.navigateByUrl('/company-home');
@@ -38,18 +97,18 @@ export class NewJobListingComponent implements OnInit {
   }
 
   deleteTag(tag: string) {
-      this.tags.splice(this.tags.indexOf(tag), 1)
+      this.newJob.tags.splice(this.newJob.tags.indexOf(tag), 1)
   }
 
   addTag(tag: string) {
-    if (this.tags.length < 5) {
-      this.tags.push(tag);
+    if (this.newJob.tags.length < 5) {
+      this.newJob.tags.push(tag);
     } 
     this.currentTag = '';
   }
   
   atMaxTags(): boolean{
-    if (this.tags.length == 5) {
+    if (this.newJob.tags.length == 5) {
       return true;
     } else {
       return false;
