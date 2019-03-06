@@ -100,7 +100,8 @@ select:required:invalid {
 
 #city {
     width: 350px;
-    margin-left: 0;
+    margin-left: -4px;
+    margin-right: 7.5px;
 }
 
 .col-7 {
