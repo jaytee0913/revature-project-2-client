@@ -1,0 +1,64 @@
+<div id="customNavbar"
+  class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 border-bottom box-shadow">
+  <h5 id="title" class="my-0 mr-md-auto font-weight-normal">Fair Breeze</h5>
+  <div class="icon-bar">
+    <a class="icons" (click)="toCompanyEvents()"><i class="far fa-calendar-alt"></i></a>
+    <a class="active icons"><i class="fa fa-home"></i></a>
+  </div>
+  <button type="button" (click)="logout()" class="btn btn-light logout">Log Out</button>
+</div>
+
+<div class="container">
+  <!-- tabs -->
+  <div class="container-sub">
+  <ngb-tabset id="student-tabs" justify="fill">
+    <ngb-tab title="Career Fairs" class="s-tabs" routerLink='/event'>
+      <ng-template ngbTabContent>
+          <app-company-events-page></app-company-events-page>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab title="Company Job Listings" class="s-tabs">
+      <ng-template ngbTabContent>
+        <app-company-job-listings></app-company-job-listings>
+      </ng-template>
+    </ngb-tab>
+  </ngb-tabset>
+</div>
+
+  <footer class="pt-4 my-md-5 pt-md-5 border-top">
+    <div class="row">
+      <div class="col-6 col-md">
+        <h5>Features</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="text-muted" href="#">Students</a></li>
+          <li><a class="text-muted" href="#">Companies</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Resources</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="text-muted" href="https://aws.amazon.com/rds/">AWS RDS</a></li>
+          <li><a class="text-muted" href="https://aws.amazon.com/ec2/">AWS EC2</a></li>
+          <li><a class="text-muted" href="https://spring.io/projects/spring-boot">Spring Boot</a></li>
+          <li><a class="text-muted" href="http://hibernate.org/">Hibernate</a></li>
+          <li><a class="text-muted" href="https://angular.io/">Angular</a></li>
+          <li><a class="text-muted" href="https://getbootstrap.com/docs/4.3/getting-started/introduction/">Bootstrap</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>About Us</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="text-muted" href="#">Meet the Team</a></li>
+          <li><a class="text-muted" href="https://revature.com/">Revature</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>

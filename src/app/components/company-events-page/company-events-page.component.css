@@ -1,0 +1,82 @@
+.add-btn {
+    color: #113a5d;
+}
+
+.event-i {
+    width: 105px;
+    height: 60px;
+}
+
+.job-c {
+    margin: 0px;
+    background-color: #113a5d;
+    color: #fff;
+    font-size: 12px;
+    float: right;
+}
+
+.event-btn {
+    font-size: 16px;
+    color: #fff;
+}
+
+.info {
+    width: 100px;
+}
+
+.job-titles {
+    color: #113a5d;
+    font-size: 20px;
+    font-weight: 50;
+    width: 100%;
+    text-align: left;
+}
+
+.job-i {
+    color: #113a5d;
+    font-size: 14px;
+    font-weight: 500;
+    width: 100%;
+    text-align: left;
+}
+
+.job-info {
+    color: #113a5d;
+    font-size: 14px;
+    font-weight: 185;
+    width: 100%;
+    text-align: left;
+}
+
+.event-i {
+    width: 100px;
+    height: 40px;
+    font-size: 14px;
+}
+
+.tagName {
+    height: 30px;
+}
+
+.tagBtns {
+    margin: 0 3px;
+    background-color: #113a5d;
+    color: #fff;
+    font-size: 10px;
+    padding: 4px;
+}
+
+.tagBtns:hover {
+    border-color: #a6ddbd;
+    border-width: 2px;
+}
+
+.create {
+    margin: 10px 5px;
+    background-color: #113a5d;
+    color: #fff;
+}
+
+.create:hover {
+    background-color: #a6ddbd;
+}

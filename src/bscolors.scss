@@ -1,0 +1,9 @@
+// Bad Bitch Colors
+
+$theme-colors: (
+    "primary": #113a5d,
+    "secondary": #a6ddbd
+);
+
+// Import bootstrap to finalize changes
+@import "../node_modules/bootstrap/scss/bootstrap";
