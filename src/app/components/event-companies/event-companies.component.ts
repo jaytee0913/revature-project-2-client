@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
+import { Company } from 'src/app/models/company.model';
+import { CompanyService } from 'src/app/services/company.service';
+import { EventService } from 'src/app/services/event.service';
 
 @Component({
   selector: 'app-event-companies',
@@ -6,50 +11,33 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./event-companies.component.css']
 })
 export class EventCompaniesComponent implements OnInit {
-  company = {
-    isCollapsed: true,
-    companyName: 'Revature',
-    description: 'Revature invests in every employee by providing ongoing training in the latest technologies. We know what technologies skills are in demand and make sure all our employees have the next gen skills they need to be successful. Our proprietary training curriculum is based on immersion in a subject and the concept of becoming a continuous “learning animal.”',
-    photo: true
-  };
-  company1 = {
-    isCollapsed: true,
-    companyName: 'Bank Of America',
-    description: 'At Bank of America, we have a clear purpose to help make financial lives better through the power of every connection. We fulfill this purpose through a strategy of responsible growth, which includes a focus on environmental, social and governance leadership.',
-    photo: true
-  };
-  company2 = {
-    isCollapsed: true,
-    companyName: 'Microsoft',
-    description: 'Microsoft is the ideal place for people who have passion for their work and the desire to make an impact—in their careers, in the community and on the world. Microsoft is a unique company; and not just within the tech industry. Here, smart people thrive on their own terms and push their intelligence to its limit. The variety of job opportunities and career advancement at Microsoft is incredible and empowers you to constantly challenge yourself and chart your own course.',
-    photo: true
-  };
-  company3 = {
-    isCollapsed: true,
-    companyName: 'Google',
-    description: 'Revature invests in every employee by providing ongoing training in the latest technologies. We know what technologies skills are in demand and make sure all our employees have the next gen skills they need to be successful. Our proprietary training curriculum is based on immersion in a subject and the concept of becoming a continuous “learning animal.”',
-    photo: true
-  };
-  company4 = {
-    isCollapsed: true,
-    companyName: 'Walmart',
-    description: 'At Bank of America, we have a clear purpose to help make financial lives better through the power of every connection. We fulfill this purpose through a strategy of responsible growth, which includes a focus on environmental, social and governance leadership.',
-    photo: true
-  };
-  company5 = {
-    isCollapsed: true,
-    companyName: 'Amazon',
-    description: 'Microsoft is the ideal place for people who have passion for their work and the desire to make an impact—in their careers, in the community and on the world. Microsoft is a unique company; and not just within the tech industry. Here, smart people thrive on their own terms and push their intelligence to its limit. The variety of job opportunities and career advancement at Microsoft is incredible and empowers you to constantly challenge yourself and chart your own course.',
-    photo: true
-  };
-  
-  allCompanies: any = [this.company, this.company1, this.company2, this.company3, this.company4, this.company5];
+  page: Number = 1;
+  pageSize: Number = 10;
+  collectionSize: Number = 5;
+  allCompanies: Array<Company>;
 
-  constructor() { }
+  constructor(private router: Router,
+              private companyService: CompanyService,
+              private eventService: EventService,
+              private cookie: CookieService) {}
 
   ngOnInit() {
+    if(this.cookie.get("student_id") == ''){
+      this.router.navigateByUrl('/front-page');
+    }
     this.displayCompanies();
   }
 
-  displayCompanies() {}
+  displayCompanies() {
+    this.eventService.getCompaniesByEvent(this.eventService.getId()).subscribe ((payload) => {
+      this.allCompanies = payload;
+      //console.log(this.allEvents);
+     
+      this.collectionSize = this.allCompanies.length;
+      for(var i = 0; i < this.allCompanies.length ; i++) {
+        this.allCompanies[i].isCollapsed = true;   
+      }
+    });
+  }
+  
 }

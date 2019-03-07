@@ -1,28 +1,36 @@
 import { Injectable } from '@angular/core';
-import {Observable, of} from 'rxjs';
-import {Company} from '../models/company/company';
-import {HttpClient} from '@angular/common/http';
-import {HttpHeaders} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CompanyService {
-  constructor(private httpClient: HttpClient) { }
-
-  //makes a post request to add a user
-  addUser(company: Company): Observable<Company> {
-
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      })
-    };
-    return this.httpClient.post<Company>('http://localhost:8080/user/adduser', company, httpOptions);
+    id: Number;
+    username: String;
+    name: String;
+  
+    constructor() {}
+  
+    getId(){
+      return this.id;
+    }
+  
+    setId(id: Number){
+      this.id = id;
+    }
+  
+    getUsername(){
+      return this.username;
+    }
+  
+    setUsername(username: String){
+      this.username = username;
   }
 
-  //gets the user from the DB by their id
-  getUserByUserId(userId: number): Observable<Company> {
-    return this.httpClient.get<Company>('http://localhost:8080/user/users/' + userId)
+  getName(){
+    return this.name;
+  }
+
+  setName(name: String){
+    this.name = name;
   }
 }

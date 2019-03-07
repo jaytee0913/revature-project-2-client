@@ -35,7 +35,7 @@
             <input type="text" class="form-control" placeholder="City" id="city" [(ngModel)]="city" required>
           </div>
           <div class="col">
-            <select class="form-control" id="inputState" name="inputState" required>
+            <select class="form-control" id="inputState" name="inputState" [(ngModel)]="state" required>
               <option value="" invalid selected>State</option>
               <option value="AL">Alabama</option>
               <option value="AK">Alaska</option>
@@ -95,70 +95,92 @@
         <div class="form-group">
           <div class="input-group-prepend">
             <span class="input-group-text"><i class="fas fa-align-justify"></i></span>
-            <input class="form-control" type="textarea" id="department" name="department" placeholder="Enter Department"
+            <input class="form-control" type="text" id="department" name="department" placeholder="Enter Department"
               [(ngModel)]="department" required />
           </div>
         </div>
 
-        <div class="form-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text"><i class="fas fa-building"></i></span>
-            <select class="form-control" id="inputType" name="inputType" required>
-              <option value="" invalid selected>Job Type</option>
-              <option value="FT">Full-Time</option>
-              <option value="PT">Part-Time</option>
-              <option value="IT">Internship</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-group">
+        <div>
+          <div class="form-group">
             <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fas fa-tags"></i></span>
-              <input class="form-control" type="textarea" id="inputTags" name="inputTags" placeholder="Enter Tags"
-                [(ngModel)]="inputTags" required />
+              <span class="input-group-text"><i class="fas fa-building"></i></span>
+              <select class="form-control" id="inputType" name="inputType" [(ngModel)]="type" required>
+                <option value="" invalid selected>Job Type</option>
+                <option value="FT">Full-Time</option>
+                <option value="PT">Part-Time</option>
+                <option value="IT">Internship</option>
+              </select>
             </div>
           </div>
 
-        <div class="form-row">
-          <button type="button" (click)="toCompanyHome()" id="addListing"
-            class="btn btn-lg btn-block btn-outline-primary signup">Add
-            Listing</button>
-          <button type="button" (click)="toCompanyHome()" id="Cancel"
-            class="btn btn-lg btn-block btn-outline-primary signup">Cancel</button>
+          <div class="form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-align-justify"></i></span>
+              <input class="form-control" type="textarea" id="major" name="major" placeholder="Enter Major Required"
+                [(ngModel)]="major" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-align-justify"></i></span>
+              <textarea class="form-control" id="description" name="description" rows="2" [(ngModel)]="description"
+                placeholder="Enter a Brief Description" required></textarea>
+            </div>
+          </div>  
+
+          <div>
+
+            <div class="form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-tags"></i></span>
+                <input class="form-control" type="textarea" id="inputTags" name="inputTags" placeholder="Enter Tags"
+                  [(ngModel)]="inputTags" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <button type="button" (click)="toCompanyHomeAdd()" id="addListing"
+                class="btn btn-lg btn-block btn-outline-primary signup">Add
+                Listing</button>
+              <button type="button" (click)="toCompanyHome()" id="Cancel"
+                class="btn btn-lg btn-block btn-outline-primary signup">Cancel</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <footer class="pt-4 my-md-5 pt-md-5 border-top">
-    <div class="row">
-      <div class="col-6 col-md">
-        <h5>Features</h5>
-        <ul class="list-unstyled text-small">
-          <li><a class="text-muted" href="#">Students</a></li>
-          <li><a class="text-muted" href="#">Companies</a></li>
-        </ul>
-      </div>
-      <div class="col-6 col-md">
-        <h5>Resources</h5>
-        <ul class="list-unstyled text-small">
-          <li><a class="text-muted" href="https://aws.amazon.com/rds/">AWS RDS</a></li>
-          <li><a class="text-muted" href="https://aws.amazon.com/ec2/">AWS EC2</a></li>
-          <li><a class="text-muted" href="https://spring.io/projects/spring-boot">Spring Boot</a></li>
-          <li><a class="text-muted" href="http://hibernate.org/">Hibernate</a></li>
-          <li><a class="text-muted" href="https://angular.io/">Angular</a></li>
-          <li><a class="text-muted" href="https://getbootstrap.com/docs/4.3/getting-started/introduction/">Bootstrap</a>
-          </li>
-        </ul>
-      </div>
-      <div class="col-6 col-md">
-        <h5>About Us</h5>
-        <ul class="list-unstyled text-small">
-          <li><a class="text-muted" href="#">Meet the Team</a></li>
-          <li><a class="text-muted" href="https://revature.com/">Revature</a></li>
-        </ul>
-      </div>
+      <footer class="pt-4 my-md-5 pt-md-5 border-top">
+        <div class="row">
+          <div class="col-6 col-md">
+            <h5>Features</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="text-muted" href="#">Students</a></li>
+              <li><a class="text-muted" href="#">Companies</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-md">
+            <h5>Resources</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="text-muted" href="https://aws.amazon.com/rds/">AWS RDS</a></li>
+              <li><a class="text-muted" href="https://aws.amazon.com/ec2/">AWS EC2</a></li>
+              <li><a class="text-muted" href="https://spring.io/projects/spring-boot">Spring Boot</a></li>
+              <li><a class="text-muted" href="http://hibernate.org/">Hibernate</a></li>
+              <li><a class="text-muted" href="https://angular.io/">Angular</a></li>
+              <li><a class="text-muted"
+                  href="https://getbootstrap.com/docs/4.3/getting-started/introduction/">Bootstrap</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-6 col-md">
+            <h5>About Us</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="text-muted" href="#">Meet the Team</a></li>
+              <li><a class="text-muted" href="https://revature.com/">Revature</a></li>
+            </ul>
+          </div>
+        </div>
+      </footer>
     </div>
-  </footer>
-</div>

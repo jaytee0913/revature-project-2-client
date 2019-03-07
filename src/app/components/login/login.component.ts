@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
-
+import { Company } from 'src/app/models/company.model';
+import { Student } from 'src/app/models/student.model';
+import { StudentService } from './../../services/student.service';
+import { CompanyService } from './../../services/company.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-login',
@@ -9,6 +13,10 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  cookieValue = 'UNKNOWN';
+  companyPayload: Company;
+  studentPayload: Student;
+
   studentEmail: string;
   studentPassword: string;
 
@@ -16,7 +24,10 @@ export class LoginComponent implements OnInit {
   companyPassword: string;
 
   constructor(private router: Router,
-              private authService: AuthService) {}
+              private authService: AuthService,
+              private cookie: CookieService,
+              private studentService: StudentService,
+              private companyService: CompanyService) {}
 
   ngOnInit() {}
 
@@ -30,8 +41,15 @@ export class LoginComponent implements OnInit {
       password: this.companyPassword
     };
 
-    this.authService.companyLogin(credentials).subscribe ( (payload) => {
-      console.log(payload);
+    this.authService.companyLogin(credentials).subscribe ((payload) => {
+      this.companyPayload = payload;
+      const company = JSON.parse(JSON.stringify(payload));
+      this.companyService.setId(company.id);
+      this.cookie.set("company_id", company.id);
+      this.companyService.setUsername(company.username);
+      this.companyService.setName(company.companyName);
+      console.log(this.companyService.getName());
+
       this.router.navigateByUrl('/company-home');
     }, (err) => {
       console.log(err);
@@ -45,8 +63,13 @@ export class LoginComponent implements OnInit {
       password: this.studentPassword
     };
 
-    this.authService.studentLogin(credentials).subscribe ( (payload) => {
-      console.log(payload);
+    this.authService.studentLogin(credentials).subscribe ((payload) => {
+      this.studentPayload = payload;
+      const student = JSON.parse(JSON.stringify(payload));
+      this.cookie.set("student_id", student.id);
+      this.studentService.setId(student.id);
+      this.studentService.setEmail(student.email);
+
       this.router.navigateByUrl('/student-home');
     }, (err) => {
       console.log(err);

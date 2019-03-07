@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { EventService } from './../../services/event.service';
+import { CookieService } from 'ngx-cookie-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-veiw-event-map',
@@ -8,11 +11,16 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 })
 export class VeiwEventMapComponent implements OnInit {
   companyPassword: String;
-  eventTitle: String = 'TAMU Career Fair';
 
-  constructor(private modalService: NgbModal) {}
+  constructor(private modalService: NgbModal,
+              private cookie: CookieService,
+              private router: Router,
+              private eventService: EventService) {}
 
   ngOnInit() {
+    if(this.cookie.get("student_id") == ''){
+      this.router.navigateByUrl('/front-page');
+    }
   }
 
   openLg(content) {
@@ -20,6 +28,6 @@ export class VeiwEventMapComponent implements OnInit {
   }
 
   getEventTitle(){
-    return '  ' + this.eventTitle;
+    return '  ' + this.eventService.name;
   }
 }

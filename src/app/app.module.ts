@@ -27,7 +27,8 @@ import { CompanyEventsPageComponent } from './components/company-events-page/com
 import { EventJobListingsComponent } from './components/event-job-listings/event-job-listings.component';
 import { EventCompaniesComponent } from './components/event-companies/event-companies.component';
 import { CompanyViewMapComponent } from './components/company-view-map/company-view-map.component';
-
+import { JobListingService } from './services/job-listing.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,7 @@ import { CompanyViewMapComponent } from './components/company-view-map/company-v
     CompanyEventsPageComponent,
     EventJobListingsComponent,
     EventCompaniesComponent,
-    CompanyViewMapComponent
+    CompanyViewMapComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,7 +59,7 @@ import { CompanyViewMapComponent } from './components/company-view-map/company-v
     NgbModule,
     HttpClientModule
     ],
-  providers: [AuthService, StudentService, CompanyService],
+  providers: [AuthService, StudentService, CompanyService, JobListingService, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

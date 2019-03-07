@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
+import { Event } from 'src/app/models/event.model';
+import { EventService } from './../../services/event.service';
+import { CompanyService } from 'src/app/services/company.service';
 
 @Component({
   selector: 'app-company-events-page',
@@ -6,52 +11,55 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./company-events-page.component.css']
 })
 export class CompanyEventsPageComponent implements OnInit {
-  event = {
-    isCollapsed: true,
-    eventTitle: 'USF Engineering Career Fair',
-    location: 'Tampa, FL',
-    building: 'Events Center',
-    date: '2016-06-22 19:10:25-07',
-    description: 'This career fair hosts admission representatives of historically more than 200 colleges and universities located in the Chicago-land area, national programs, and international programs. Attendees may obtain information on a variety of graduate and professional programs as well as obtain advice about the application process.',
-    contactEmail: 'abby@aol.com',
-    contactName: 'Abby Arby',
-    photo: true
-  };
-  event2 = {
-    isCollapsed: true,
-    eventTitle: 'Georgia Computer Science Career Fair',
-    location: 'Athens, GA',
-    building: 'Bulldogs Building',
-    date: '2017-11-09 15:10:25-07',
-    description: 'This job fair is coordinated by the UIC Student Employment Office (SEO) and open to UIC students and alumni. The fair hosts employers offering internships, part-time employment, seasonal employment , and full-time employment opportunities across all majors.',
-    contactEmail: 'ben@barney.com',
-    contactName: 'Ben Benny',
-    photo: true
-  };
-  event3 = {
-    isCollapsed: true,
-    eventTitle: 'TAMU Business Career Fair',
-    location: 'College Station, TX',
-    building: 'Reed Arena',
-    date: '2018-02-24 12:10:25-07',
-    description: '	This fair is UIC’s only job fair during the summer semester. The fair hosts employers from various industries including Technology, Government, Health Care, Nonprofit, and Education. Employers frequently offer full-time employment, part-time employment, and internship opportunities.',
-    contactEmail: 'candy@candyland.com',
-    contactName: 'Candy Carter',
-    photo: true
-  };
-  
-  allEvents: any = [this.event, this.event2, this.event3];
+  page: Number = 1;
+  pageSize: Number = 10;
+  collectionSize: Number = 5;
+  eventId: Number;
+  allEvents: Array<Event>;
 
-  constructor() { }
+  constructor(private router: Router,
+              private eventService: EventService,
+              private companyService: CompanyService,
+              private cookie: CookieService) {}
 
   ngOnInit() {
+    if(this.cookie.get("company_id") == ''){
+      this.router.navigateByUrl('/front-page');
+    }
     this.displayEvents();
   }
+
+  reloadPage() {
+    this.router.navigateByUrl('/company-events-page');
+  }
   
-  displayEvents() {}
+  displayEvents() {
+    this.eventService.getEvents().subscribe ((payload) => {
+      this.allEvents = payload;
+      console.log(this.allEvents);
+      this.collectionSize = this.allEvents.length;
+      for(var i = 0; i < this.allEvents.length ; i++) {
+        this.allEvents[i].isCollapsed = true;   
+      }
+    });
+  }
 
   rsvpToEvent(i){
-    console.log("RSVP'd for " + this.allEvents[i].eventTitle);
+    const rsvpID = {
+      businessId: this.companyService.getId(),
+      eventId: this.eventService.getId()
+    };
+
+    // console.log("RSVP'd for " + this.allEvents[i].name + " " + this.eventService.getId());
+    this.eventService.addToRSVP(rsvpID).subscribe((payload) => {
+      this.displayEvents();
+      window.alert("RSVP Confirmed!");
+    });
+  }
+
+  setEvent(i){
+    this.eventService.setId(this.allEvents[i].id);
+    this.eventService.setName(this.allEvents[i].name);
   }
 
 }

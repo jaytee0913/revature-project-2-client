@@ -69,3 +69,29 @@
 .create:hover {
     background-color: #a6ddbd;
 }
+
+.delete {
+    margin: 0px;
+    background-color: #a50000;
+    color: #fff;
+    font-size: 12px;
+    float: right;
+}
+
+.delete:hover {
+    background-color: red;
+}
+
+.pw {
+    color:  #113a5d;
+    background-color: #e5e5e5;
+    width: 20px;
+}
+
+.pages-c {
+    text-align: center;
+}
+
+.pages {
+    display: inline-block;
+}

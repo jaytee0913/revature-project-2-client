@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { JobListingService } from 'src/app/services/job-listing.service';
+import { CurrentJobService } from './../../services/current-job.service';
 
 @Component({
   selector: 'app-delete-job-listing',
@@ -7,26 +9,29 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./delete-job-listing.component.css']
 })
 export class DeleteJobListingComponent implements OnInit {
-  jobTitle: String = 'Software Development Position';
+  // jobTitle: String = 'Software Development Position';
 
-  constructor(private modalService: NgbModal) {}
+  constructor(private modalService: NgbModal,
+              private currentJobService: CurrentJobService,
+              private jobService: JobListingService) {}
 
   ngOnInit(){}
 
-  open(content) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-      if(result===0){
-        console.log('Confirmed'); // Delete listing from the database
-      } else {
-        console.log('Cancelled');
-      }
+  // open(content) {
+  //   this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+  //     if(result===0){
+  //       this.jobService.deleteJobListing(this.currentJobServi);
+  //       console.log('Confirmed'); // Delete listing from the database
+  //     } else {
+  //       console.log('Cancelled');
+  //     }
 
-    }, (reason) => {
-      console.log('Closed');
-    });
-  }
+  //   }, (reason) => {
+  //     console.log('Closed');
+  //   });
+  // }
 
-  getJobTitle(){
-    return '"' + this.jobTitle + '"';
-  }
+  // getJobTitle(){
+  //   return '"' + this.jobTitle + '"';
+  // }
 }

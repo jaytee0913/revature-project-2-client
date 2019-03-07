@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { JobListingService } from './../../services/job-listing.service';
+import { Job } from 'src/app/models/job.model';
+import { StudentService } from './../../services/student.service';
+import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,61 +11,50 @@ import { Router } from '@angular/router';
   styleUrls: ['./job-listings.component.css']
 })
 export class JobListingsComponent implements OnInit {
-  job = {
-    isCollapsed: true,
-    jobTitle: 'Computer Engineer',
-    companyName: 'Revature',
-    city: 'Tampa',
-    state: 'FL',
-    type: 'Full-Time',
-    dept: 'Software Development Team',
-    isFavorite: true,
-    description: 'Best Job Ever! We get every weekend to ourselves ! lol Sikeas;jjvn;ojdnva;sdjv asdvadv adjvanjdv adjvadsv ajidvad vwjdvchae vasvh adva eva vajdvha dv;ahvne skdvbnaksdv asdkvbas dviad vasd vaidv advajv',
-    tags: ['Full-time', 'Training', 'Fun']
-  };
-  job2 = {
-    isCollapsed: true,
-    jobTitle: 'Computer Engineer',
-    companyName: 'Apple',
-    city: 'Los Angeles',
-    state: 'CA',
-    type: 'Part-Time',
-    dept: 'Apples Top Software Team',
-    isFavorite: false,
-    description: 'Apple Life ekend to ourselves ! lol Sikeas;jjvn;ojdnva;sdjv asdvadv adjvanjdv adjvadsv ajidvad vwjdvchae vasvh adva eva vajdvha dv;ahvne skdvbnaksdv asdkvbas dviad vasd vaidv advajv',
-    tags: ['Part-time', 'Apple']
-  };
-  job3 = {
-    isCollapsed: true,
-    jobTitle: 'Computer Developer',
-    companyName: 'Microsoft',
-    city: 'Atlanta',
-    state: 'GA',
-    type: 'Internship',
-    dept: 'Micrpsoft Software Development Team',
-    isFavorite: false,
-    description: 'Best Job Ever! Microsoft Life!',
-    tags: ['Internship', 'On Job Training', 'Fun', 'We are Microsoft']
-  };
   page: Number = 1;
-  pageSize: Number = 2;
-  location: any;
-  allJobs: any = [this.job, this.job2, this.job3];
+  pageSize: Number = 10;
+  collectionSize: Number = 5;
+  allJobs: Array<Job>;
+  companyName: String;
 
-  constructor(private router: Router) { }
+  constructor(private jobService: JobListingService,
+              private cookie: CookieService,
+              private router: Router,
+              private studentService: StudentService) {}
 
   ngOnInit() {
+    if(this.cookie.get("student_id") == ''){
+      this.router.navigateByUrl('/front-page');
+    }
     this.displayJobListings();
   }
 
-  displayJobListings() {}
-
-  addToFavorites(){
-    //
+  displayJobListings() {
+    this.jobService.getJobs().subscribe ((payload) => {
+      this.allJobs = payload;
+      console.log(this.allJobs);
+      for(var i = 0; i < this.allJobs.length; i++){
+        if(this.allJobs[i].active == false){
+          this.allJobs.splice(i,1);
+        }
+      }
+      console.log(this.allJobs);
+      this.collectionSize = this.allJobs.length;
+      for(var i = 0; i < this.allJobs.length ; i++) {
+        this.allJobs[i].isCollapsed = true;  
+      }
+    });
   }
 
-  getLocation(i){
-    this.location = this.allJobs[i].city + ', ' + this.allJobs[i].state;
-    return this.location;
+  addToFavorites(i){
+    const favJob = {
+      jobId: this.allJobs[i].id,
+      studentId: this.studentService.getId()
+    };
+
+    this.jobService.addToFavorites(favJob).subscribe ((payload) => {
+      window.alert("Job Favorite Confirmed!");
+    });
   }
+
 }

@@ -3,9 +3,8 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class StudentService {
+export class CurrentJobService {
   id: Number;
-  email: String;
 
   constructor() {}
 
@@ -15,13 +14,5 @@ export class StudentService {
 
   setId(id: Number){
     this.id = id;
-  }
-
-  getEmail(){
-    return this.email;
-  }
-
-  setEmail(email: String){
-    this.email = email;
   }
 }

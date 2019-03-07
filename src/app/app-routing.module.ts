@@ -14,25 +14,26 @@ import { CompanyJobListingsComponent } from './components/company-job-listings/c
 import { CompanyEventsComponent } from './components/company-events/company-events.component';
 import { NewJobListingComponent } from './components/new-job-listing/new-job-listing.component';
 import { CompanyEventsPageComponent } from './components/company-events-page/company-events-page.component';
+// window.location.reload();
 
 const routes: Routes = [
   // redirect empty path to login
   {
     path: '',
     component: FrontPageComponent
-  },{
+  }, {
     path: 'front-page',
     component: FrontPageComponent
-  },{
+  }, {
     path: 'login',
     component: LoginComponent
-  },{
+  }, {
     path: 'student-signup',
     component: StudentSignupComponent
-  },{
+  }, {
     path: 'company-signup',
     component: CompanySignupComponent
-  },{
+  }, {
     path: 'student-home',
     component: StudentHomeComponent,
     children: [{
@@ -44,35 +45,31 @@ const routes: Routes = [
       component: JobListingsComponent,
       outlet: 'student-home'
     }]
-  },{
+  }, {
     path: 'company-home',
     component: CompanyHomeComponent,
     children: [{
-      path: 'events',
-      component: EventsComponent,
-      outlet: 'company-home'
+      path: 'company-events-page',
+      component: CompanyEventsPageComponent
     }, {
       path: 'company-job-listings',
       component: CompanyJobListingsComponent,
       outlet: 'company-home'
     }]
-  },{
+  }, {
     path: 'student-favs',
     component: StudentFavsComponent
-  },{
+  }, {
     path: 'company-events',
     component: CompanyEventsComponent
-  },{
+  }, {
     path: 'new-job-listing',
     component: NewJobListingComponent
-  }, {
-    path: 'company-events-page',
-    component: CompanyEventsPageComponent
   }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-exports: [RouterModule]
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }

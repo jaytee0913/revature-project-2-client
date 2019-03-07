@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-event-job-listings',
@@ -43,13 +45,17 @@ export class EventJobListingsComponent implements OnInit {
     tags: ['Internship', 'On Job Training', 'Fun', 'We are Microsoft']
   };
   page: Number = 1;
-  jobListSize: Number = 40;
+  pageSize: Number = 2;
   location: any;
   allJobs: any = [this.job, this.job2, this.job3];
 
-  constructor() { }
+  constructor(private cookie: CookieService,
+              private router: Router) {}
 
   ngOnInit() {
+    if(this.cookie.get("student_id") == ''){
+      this.router.navigateByUrl('/front-page');
+    }
     this.displayJobListings();
   }
 

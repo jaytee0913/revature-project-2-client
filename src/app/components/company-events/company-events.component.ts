@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
+import { CompanyService } from 'src/app/services/company.service';
+import { EventService } from 'src/app/services/event.service';
 
 @Component({
   selector: 'app-company-events',
@@ -7,50 +10,59 @@ import { Router } from '@angular/router';
   styleUrls: ['./company-events.component.css']
 })
 export class CompanyEventsComponent implements OnInit {
-  event = {
-    isCollapsed: true,
-    eventTitle: 'USF Engineering Career Fair',
-    location: 'Tampa, FL',
-    building: 'Events Center',
-    address: '730 Olsen Blvd, College Station, TX 77843',
-    date: '2016-06-22 19:10:25-07',
-    photo: true
-  };
-  event2 = {
-    isCollapsed: true,
-    eventTitle: 'Georgia Computer Science Career Fair',
-    location: 'Athens, GA',
-    building: 'Bulldogs Building',
-    address: '730 Olsen Blvd, College Station, TX 77843',
-    date: '2017-11-09 15:10:25-07',
-    photo: true
-  };
-  event3 = {
-    isCollapsed: true,
-    eventTitle: 'TAMU Business Career Fair',
-    location: 'College Station, TX',
-    building: 'Reed Arena',
-    address: '730 Olsen Blvd, College Station, TX 77843',
-    date: '2018-02-24 12:10:25-07',
-    photo: true
-  };
-  
-  allEvents: any = [this.event, this.event2, this.event3];
+  allEvents: any;
 
-
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+              private cookie: CookieService,
+              private companyService: CompanyService,
+              private eventService: EventService) { }
 
   ngOnInit() {
-    this.displayJobListings();
+    if(this.cookie.get("company_id") == ''){
+      this.router.navigateByUrl('/front-page');
+    }
+    // console.log("test on init");
+    this.displayEvents();
   }
 
-  displayJobListings() {}
+  reloadPage() {
+    this.router.navigateByUrl('/company-events');
+  }
+
+  displayEvents() {
+    this.eventService.getEventsByCompany(this.companyService.getId()).subscribe((payload) => {
+      console.log(payload);
+      this.allEvents = payload;
+      console.log(this.allEvents);
+      for(var i = 0; i < this.allEvents.length ; i++) {
+        this.allEvents[i].isCollapsed = true;  
+      }
+    });
+  }
+
+  removeFromRSVP(i){ 
+    const rmRSVP = {
+      b_id: this.companyService.getId(),
+      e_id: this.allEvents[i].id
+    };
+
+    this.eventService.rmRSVP(rmRSVP.b_id, rmRSVP.e_id).subscribe((payload) => {
+      this.displayEvents();
+      this.reloadPage();
+    });
+  }
 
   toCompanyHome(){
     this.router.navigateByUrl('/company-home');
   }
 
+  setEvent(i){
+    this.eventService.setId(this.allEvents[i].id);
+    this.eventService.setName(this.allEvents[i].name);
+  }
+
   logout(){
+    this.cookie.deleteAll();
     this.router.navigateByUrl('/front-page');
   }
 }

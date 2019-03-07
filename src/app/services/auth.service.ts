@@ -1,9 +1,13 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+import { Observable } from 'rxjs';
+import { Company } from 'src/app/models/company.model';
+import { Student } from 'src/app/models/student.model';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthService {
   constructor(private http: HttpClient) { }
 
@@ -13,7 +17,6 @@ export class AuthService {
   }
 
   // check to see if the user is in the dB
-
   public getToken(): number {
     return Number(localStorage.getItem('authToken'));
   }
@@ -42,9 +45,9 @@ export class AuthService {
     return this.http.post(url, signupInput);
   }
   
-  companyLogin(credentials: any) {
+  companyLogin(credentials: any): Observable<Company> {
     const url = 'http://localhost:8080/login/business';
-    return this.http.post(url, credentials);
+    return this.http.post<Company>(url, credentials);
   }
 
   studentSignUp(signupInput: any) {
@@ -52,9 +55,9 @@ export class AuthService {
     return this.http.post(url, signupInput);
   }
 
-  studentLogin(credentials: any) {
+  studentLogin(credentials: any): Observable<Student>{
     const url = 'http://localhost:8080/login/student';
-    return this.http.post(url, credentials);
+    return this.http.post<Student>(url, credentials);
   }
 
   //clears the auth token
